@@ -11,19 +11,25 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   email: string = '';
   password: string = '';
+  errorMessage: string = '';
 
   constructor(private authService: AuthService, private router: Router) {}
 
   onLogin() {
     this.authService.login(this.email, this.password).subscribe({
-      next: (response:any) =>{
-        console.log('Login efetuado com sucesso', response);
+      next: (response) =>{
+        console.log('Login feito', response);
         //ajustar para a rota correta 
         this.router.navigate(['/dashboard']);
       },
-      error: (err:any) => {
-        console.log(err);
+      error: (err) => {
+        this.errorMessage = 'Login inválido' +(err.message ? err.message : '');
       }
     });
   }
+
+  onForgotPassword() {
+    this.router.navigate(['/forgot-password']);
+  }
 }
+
