@@ -1,0 +1,31 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link rel="stylesheet" href="dash.component.css">
+  <div class="header">
+    <button type="button" class="btn btn-secondary">☰</button>
+    <span class="title">ESTOQUE</span>
+  </div>
+
+  <div *ngIf="menuOpen" class="dropdown-menu">
+    <ul>
+      <li><a href="#">MENU</a></li>
+      <li><a href="#">DASHBOARD</a></li>
+      <li><a href="#">ESTOQUE</a></li>
+      <li><a href="#">LISTA DE PAGAMENTO</a></li>
+      <li><a href="#">ADIÇÃO DE PRODUTO</a></li>
+      <li><a href="#">SAIR</a></li>
+    </ul>
+  </div>
+  
+  <div class="stock-container">
+    <div *ngFor="let item of items" class="stock-item">
+      <span>{{ item.name }}</span>
+      <div class="quantity-control">
+        <button (click)="decreaseQuantity(item)"type="button" class="btn btn-outline-secondary">-</button>
+        <input type="number" [value]="item.quantity" readonly />
+        <button (click)="increaseQuantity(item)"type="button" class="btn btn-outline-secondary">+</button>
+      </div>
+    </div>
+    <div id="atualizar">
+      <button class="update-button" (click)="updateStock()">ATUALIZAR</button>
+    </div>
+  </div>
