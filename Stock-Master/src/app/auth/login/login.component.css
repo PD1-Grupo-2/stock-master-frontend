@@ -1,0 +1,76 @@
+/* Centraliza o formulário */
+.container {
+  max-width: 300px; /* Aumenta a largura do contêiner */
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px; /* Adiciona padding interno */
+}
+
+/* Estilo do título */
+.text-center {
+  font-size: 34px; /* Tamanho do título */
+  font-weight: bold;
+  margin-bottom: 15%; /* Espaçamento abaixo do título */
+}
+
+/* Margens entre os campos */
+.mb-3 {
+  margin: 5% 0; /* Espaçamento entre os campos */
+}
+
+/* Estilo dos campos de input */
+.form-control {
+  border-radius: 10px;
+  background-color: #e0e0e0;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%; /* Campo ocupa toda a largura disponível */
+  margin-bottom: 4px; /* Espaçamento entre os campos */
+}
+
+/* Ajuste da label */
+.form-label {
+  display: block;
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: black;
+}
+
+/* Estilo do botão de submit */
+.btn-primary {
+  margin-top: 15%; /* Espaçamento acima do botão */
+  background-color: #4CAF50;
+  border-radius: 10px;
+  height: 40px;
+  width: 100%; /* Botão ocupa toda a largura */
+  font-size: 24px; /* Tamanho da fonte do botão */
+  font-weight: bold;
+  color: white;
+  border: none;
+  cursor: pointer; /* Adiciona cursor pointer */
+}
+
+/* Estilo do botão ao passar o mouse */
+.btn-primary:hover {
+  background-color: #45a049; /* Tom mais escuro ao passar o mouse */
+}
+
+/* Esqueci minha senha - Link */
+.btn-link {
+  font-size: 14px;
+  color: black;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+/* Mensagens de erro */
+.text-danger {
+  font-size: 12px;
+  color: red;
+  margin-top: 0px; /* Espaçamento acima das mensagens de erro */
+}
+.mt-3 {
+  margin-top: 6%;
+}
