@@ -1,0 +1,6 @@
+.shadow-header {
+    box-shadow: 0 2px 2px -2px gray;
+  }
+.navbar-brand {
+    margin-left: 20px;
+}
