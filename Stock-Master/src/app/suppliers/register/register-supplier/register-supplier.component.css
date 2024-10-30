@@ -1,0 +1,8 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the start to allow margin-top */
+    height: 100vh; /* Full viewport height */
+    background-size: cover;
+    padding-top: 50px; /* Add top padding to create margin */
+}

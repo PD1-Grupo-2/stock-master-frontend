@@ -20,16 +20,20 @@ export class LoginComponent {
       next: (response) =>{
         console.log('Login feito', response);
         //ajustar para a rota correta 
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/home']);
       },
       error: (err) => {
-        this.errorMessage = 'Login inválido' +(err.message ? err.message : '');
+        this.errorMessage = 'Login inválido: ' +(err.message ? err.message : '');
       }
     });
   }
 
   onForgotPassword() {
     this.router.navigate(['/forgot-password']);
+  }
+  redirectToHome() {
+    this.router.navigate(['/home']);
+    console.log('Home');
   }
 }
 
