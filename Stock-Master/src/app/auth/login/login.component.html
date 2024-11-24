@@ -2,9 +2,8 @@
 <div class=" mt-5">
   <div class="row justify-content-center">
     <div class="col-12 col-md-8 col-lg-6 white-box">
-      <h1 class="text-center mt-5">Bem-vindo ao StockMaster!</h1>
       <div class="logo-container text-center">
-        <img src="images/logo_stock_master.png" height="70px" alt="Stock Master Logo" class="logo">
+        <img src="images/logo_stock_master_horizontal.png" height="40px" alt="Stock Master Logo" class="logo">
       </div>
 
       <h2 class="text-center">Login</h2>
@@ -12,7 +11,8 @@
       <form (ngSubmit)="onLogin()" #loginForm="ngForm">
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Email:</label>
-          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" [(ngModel)]="email" name="email" required>
+          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" [(ngModel)]="email"
+            name="email" required>
           <div *ngIf="loginForm.submitted && !email" class="text-danger">
             O email é obrigatório.
           </div>
@@ -20,22 +20,36 @@
 
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">Senha:</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="password" name="password" required>
+          <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="password" name="password"
+            required>
           <div *ngIf="loginForm.submitted && !password" class="text-danger">
             A senha é obrigatória.
           </div>
         </div>
-
-        <!-- <button type="submit" class="btn btn-primary w-100" [disabled]="!loginForm.valid">Entrar</button> -->
-
         <!-- Login desabilitado temporariamente. Deve ser reativado após a implementação da API -->
-        <button type="button" class="btn btn-primary w-100" (click)="redirectToHome()">Entrar</button>
+        <div class="d-flex justify-content-center">
+          <button type="button" class="btn btn-primary w-80" (click)="redirectToHome()">Entrar</button>
+        </div>
         <div class="mt-3 text-center">
           <a (click)="onForgotPassword()" class="btn btn-link">Esqueci minha senha</a>
         </div>
       </form>
       <div *ngIf="errorMessage" class="text-danger mt-3 text-center">
         {{errorMessage}}
+      </div>
+      <div class="mt-4 text-center">
+        <p>Ou entre com</p>
+        <div class="d-flex justify-content-center">
+          <button type="button" class="btn btn-outline-primary m-2" (click)="loginWithGoogle()">
+            <img src="images/google-icon.png" alt="Google Logo" height="40px">
+          </button>
+          <button type="button" class="btn btn-outline-primary m-2" (click)="loginWithFacebook()">
+            <img src="images/facebook-icon.png" alt="Facebook Logo" height="40px">
+          </button>
+          <button type="button" class="btn btn-outline-primary m-2" (click)="loginWithApple()">
+            <img src="images/apple-icon.png" alt="Apple Logo" height="40px">
+          </button>
+        </div>
       </div>
     </div>
   </div>

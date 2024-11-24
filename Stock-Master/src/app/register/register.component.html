@@ -1,21 +1,33 @@
 <div class="register-container">
-  <h2>Registrar</h2>
-  <form (ngSubmit)="onRegister()">
-    <div>
-      <label for="email">Email:</label>
-      <input type="email" id="email" [(ngModel)]="email" name="email" required />
-    </div>
 
-    <div>
-      <label for="password">Senha:</label>
-      <input type="password" id="password" [(ngModel)]="password" name="password" required />
-    </div>
+  <div class="background-overlay menu-container"></div>
+  <div class=" mt-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6 white-box">
+        <!-- <h1 class="text-center mt-5">Bem-vindo ao StockMaster!</h1> -->
+        <div class="logo-container text-center">
+          <img src="images/logo_stock_master_horizontal.png" height="40px" alt="Stock Master Logo" class="logo">
+        </div>
 
-    <div>
-      <label for="confirmPassword">Confirmar Senha:</label>
-      <input type="password" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" required />
-    </div>
+        <h2 class="text-center">Registrar</h2>
 
-    <button type="submit">Registrar</button>
-  </form>
-</div>
+        <form (ngSubmit)="onRegister()">
+          <div class="mb-3">
+            <label for="email">Email:</label>
+            <input type="email" id="email" [(ngModel)]="email" name="email" required />
+          </div>
+
+          <div class="mb-3">
+            <label for="password">Senha:</label>
+            <input type="password" id="password" [(ngModel)]="password" name="password" required />
+          </div>
+
+          <div class="mb-3">
+            <label for="confirmPassword">Confirmar Senha:</label>
+            <input type="password" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" required />
+          </div>
+
+
+          <div class="d-flex justify-content-center">
+            <button type="button" class="btn btn-primary w-80">Registrar</button>
+          </div>

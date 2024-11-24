@@ -1,1 +1,10 @@
-<router-outlet></router-outlet>
+<!-- parent.component.html -->
+<div *ngIf="!isLoginPage">
+    <app-header></app-header>
+  </div>
+  
+  <router-outlet></router-outlet>
+  
+  <div *ngIf="!isLoginPage">
+    <app-bottom-navbar></app-bottom-navbar>
+  </div>
