@@ -1,0 +1,26 @@
+.bottom-navbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #385c81;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+.nav-item {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    flex: 1;
+}
+
+.nav-item i {
+    display: block;
+    font-size: 18px;
+}
+
+.nav-item span {
+    display: block;
+    font-size: 12px;
+}

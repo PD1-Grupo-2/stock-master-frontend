@@ -1,3 +1,42 @@
-<header>
-    <app-header></app-header>
-  </header>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let notification of notifications">
+      <div class="card mb-4 shadow-sm" [ngClass]="{'bg-warning text-black': notification.type === 'warning'}">
+        <div class="card-body position-relative">
+          <h5 class="card-title">{{ notification.title }}</h5>
+          <p class="card-text">{{ notification.message }}</p>
+          <i *ngIf="notification.type === 'warning'"
+            class="fas fa-exclamation-circle position-absolute top-0 end-0 m-2"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menu -->
+  <div class="row mt-4">
+    <div class="col-lg-4 col-md-6 col-sm-4 col-4 mb-3 d-flex">
+      <div class="card text-center p-3 rounded menu-card flex-fill">
+        <i class="fas fa-box fa-2x mb-2"></i>
+        <h6>Produtos</h6>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-4 col-4 mb-3 d-flex">
+      <div class="card text-center p-3 rounded menu-card flex-fill">
+        <i class="fas fa-warehouse fa-2x mb-2"></i>
+        <h6>Estoque</h6>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-4 col-4 mb-3 d-flex">
+      <div class="card text-center p-3 rounded menu-card flex-fill">
+        <i class="fas fa-cogs fa-2x mb-2"></i>
+        <h6>Configurações</h6>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-4 col-4 mb-3 d-flex">
+      <div class="card text-center p-3 rounded menu-card flex-fill">
+        <i class="fas fa-users fa-2x mb-2"></i>
+        <h6>Clientes</h6>
+      </div>
+    </div>
+  </div>
+</div>

@@ -11,6 +11,8 @@ export class RegisterComponent {
   email: string = '';
   password: string = '';
   confirmPassword: string = '';
+  isLoginPage: boolean = true;
+
 
   constructor(private userService: UserService) {}
 

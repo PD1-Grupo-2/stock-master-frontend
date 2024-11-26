@@ -1,6 +1,22 @@
 .shadow-header {
-    box-shadow: 0 2px 2px -2px gray;
-  }
+  box-shadow: 0 2px 2px -2px gray;
+}
+
 .navbar-brand {
-    margin-left: 20px;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.avatar-initials {
+  width: 35px;
+  height: 35px;
+  margin-top: 10px;
+  margin-right: 10px;
+  background-color: #385c81;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+  font-weight: normal;
 }

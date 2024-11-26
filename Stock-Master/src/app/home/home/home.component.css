@@ -1,0 +1,47 @@
+.card {
+    border-radius: 13px;
+    /* Adjust the value as needed */
+}
+
+.card .fa-exclamation-circle {
+    font-size: 1.5rem;
+}
+
+.card {
+    cursor: pointer;
+    border-radius: 10px;
+    /* Adjust the value as needed */
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+
+
+.menu-card {
+    padding: 1rem;
+    /* Adjust the padding as needed */
+    font-size: 0.7rem;
+    /* Adjust the font size as needed */
+    height: 100px;
+    /* Set a fixed height for the squares */
+    width: 100px;
+    /* Ensure the card takes the full width of the column */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-card i {
+    color: #007bff;
+    /* Adjust the color as needed */
+}
+
+.menu-card h6 {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    /* Smaller font size for the text */
+}
