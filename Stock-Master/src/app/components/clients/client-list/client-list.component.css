@@ -1,0 +1,19 @@
+.card {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px; /* Adjust padding to make the card smaller */
+  }
+  
+  .card-body {
+    text-align: left;
+    padding: 10px; /* Adjust padding to make the card body smaller */
+  }
+  
+  .card-title {
+    font-size: 1.0rem; /* Adjust font size if needed */
+  }
+  
+  .card-text {
+    font-size: 0.9rem; /* Adjust font size if needed */
+  }

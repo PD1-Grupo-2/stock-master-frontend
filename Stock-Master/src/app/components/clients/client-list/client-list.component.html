@@ -1,0 +1,18 @@
+<div class="container mt-4">
+    <div class="row mb-3">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Pesquisar clientes..." [(ngModel)]="searchTerm" (input)="filterClients()">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 mb-3" *ngFor="let client of filteredClients">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">{{client.name}}</h5>
+            <p class="card-text">{{client.email}}</p>
+            <p class="card-text"><strong>ID:</strong> {{client.id}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

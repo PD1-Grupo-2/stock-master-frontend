@@ -1,12 +1,12 @@
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
 .logo-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100px; 
-  }
-  
-  .logo {
-    display: block;
-  }
+}
 
-  
+.logo {
+    display: block;
+}
