@@ -14,17 +14,17 @@ export class LoginComponent {
   errorMessage: string = '';
   isLoginPage: boolean = true;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) { }
 
   onLogin() {
     this.authService.login(this.email, this.password).subscribe({
-      next: (response) =>{
+      next: (response) => {
         console.log('Login feito', response);
         //ajustar para a rota correta 
         this.router.navigate(['/home']);
       },
       error: (err) => {
-        this.errorMessage = 'Login inválido: ' +(err.message ? err.message : '');
+        this.errorMessage = 'Login inválido: ' + (err.message ? err.message : '');
       }
     });
   }

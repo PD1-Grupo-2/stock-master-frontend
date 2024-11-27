@@ -1,0 +1,30 @@
+<div class="container mt-4">
+    <mat-tab-group>
+      <mat-tab label="Entrada">
+        <div class="row mt-3">
+          <div class="col-lg-4 col-md-6 col-sm-12 mb-3" *ngFor="let product of entradaProducts">
+            <mat-card class="h-100">
+              <mat-card-title>{{product.name}}</mat-card-title>
+              <mat-card-content>
+                <p><strong>Quantidade:</strong> {{product.quantity}}</p>
+                <p><strong>Preço:</strong> {{product.price | currency:'BRL'}}</p>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Saída">
+        <div class="row mt-3">
+          <div class="col-lg-4 col-md-6 col-sm-12 mb-3" *ngFor="let product of saidaProducts">
+            <mat-card class="h-100">
+              <mat-card-title>{{product.name}}</mat-card-title>
+              <mat-card-content>
+                <p><strong>Quantidade:</strong> {{product.quantity}}</p>
+                <p><strong>Preço:</strong> {{product.price | currency:'BRL'}}</p>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
