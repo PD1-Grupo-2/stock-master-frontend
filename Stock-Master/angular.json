@@ -23,6 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            
             "outputPath": "dist/stock-master",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -71,6 +72,9 @@
           "defaultConfiguration": "production"
         },
         "serve": {
+          "options": {
+            "proxyConfig": "src/proxy.conf.json"
+          },
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {

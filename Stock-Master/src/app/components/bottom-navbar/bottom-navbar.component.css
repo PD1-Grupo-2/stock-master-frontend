@@ -1,18 +1,25 @@
 .bottom-navbar {
     position: fixed;
+    justify-content: space-around;
     bottom: 0;
-    width: 100%;
-    background-color: #385c81;
+    left: 10px; /* Add margin to the left */
+    right: 10px; /* Add margin to the right */
+    background-color: #e7e7e7;
     display: flex;
     justify-content: space-around;
     padding: 10px 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 15px; /* Add rounded corners to the navbar */
+    margin-bottom: 10px; /* Add margin to the bottom */
 }
 
 .nav-item {
-    color: white;
     text-align: center;
+    color: #7b8ba0;
     text-decoration: none;
-    flex: 1;
+    padding: 10px;
+    border-radius: 15px; /* Add rounded corners to the nav items */
+    transition: background-color 0.3s;
 }
 
 .nav-item i {
@@ -23,4 +30,9 @@
 .nav-item span {
     display: block;
     font-size: 12px;
+}
+
+.nav-item.active {
+    background-color: #3E5BEA; /* Set the background color for the active item */
+    color: #fff; /* Set the text color for the active item */
 }

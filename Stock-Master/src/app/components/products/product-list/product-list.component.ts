@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -13,7 +14,7 @@ export class ProductListComponent implements OnInit {
   searchTerm: string = '';
   filteredProducts = this.products;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -23,5 +24,8 @@ export class ProductListComponent implements OnInit {
       product.name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
       product.description.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
+  }
+  navigateToAddProduct() {
+    this.router.navigate(['/new-sell-order']);
   }
 }

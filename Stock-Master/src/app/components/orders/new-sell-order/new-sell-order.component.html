@@ -1,0 +1,71 @@
+<div class="container mt-4">
+  <h2 class="text-center">Pedido de Venda</h2>
+  <form>
+    <div class="mb-3">
+      <label for="productName" class="form-label">Nome do Produto</label>
+      <div class="input-group">
+        <input type="text" class="form-control" id="productName" placeholder="Digite o nome do produto" [(ngModel)]="productName" name="productName" required>
+        <button class="btn btn-outline-secondary" type="button" (click)="searchProduct()">
+          <i class="bi bi-search"></i>
+        </button>
+        <button class="btn btn-outline-secondary" type="button" (click)="scanBarcode()">
+          <i class="bi bi-upc-scan"></i>
+        </button>
+        <button class="btn btn-outline-secondary" type="button" (click)="startListening()">
+          <i class="bi bi-mic"></i>
+        </button>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="quantity" class="form-label">Quantidade</label>
+      <input type="number" class="form-control" id="quantity" placeholder="Digite a quantidade" [(ngModel)]="quantity" name="quantity" required>
+    </div>
+    <div class="mb-3">
+      <label for="price" class="form-label">Preço</label>
+      <input type="number" class="form-control" id="price" placeholder="Digite o preço" [(ngModel)]="price" name="price" required>
+    </div>
+    <div class="mb-3">
+      <label for="customerName" class="form-label">Nome do Cliente</label>
+      <input type="text" class="form-control" id="customerName" placeholder="Digite o nome do cliente" [(ngModel)]="customerName" name="customerName" required>
+    </div>
+    <div class="mb-3">
+      <label for="customerEmail" class="form-label">Email do Cliente</label>
+      <input type="email" class="form-control" id="customerEmail" placeholder="Digite o email do cliente" [(ngModel)]="customerEmail" name="customerEmail" required>
+    </div>
+    <div class="mb-3">
+      <label for="orderDate" class="form-label">Data do Pedido</label>
+      <input type="date" class="form-control" id="orderDate" [(ngModel)]="orderDate" name="orderDate" required>
+    </div>
+    <div class="mb-3">
+      <label for="orderStatus" class="form-label">Status do Pedido</label>
+      <select class="form-select" id="orderStatus" [(ngModel)]="orderStatus" name="orderStatus" required>
+        <option value="pending">Pendente</option>
+        <option value="processed">Processado</option>
+        <option value="shipped">Enviado</option>
+        <option value="delivered">Entregue</option>
+        <option value="cancelled">Cancelado</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar Pedido</button>
+  </form>
+</div>
+
+<!-- Modal for speech recognition -->
+<div class="modal fade" id="recordingModal" tabindex="-1" aria-labelledby="recordingModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="recordingModalLabel">Gravação em andamento</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Gravando... Clique no botão abaixo para parar a gravação.</p>
+        <button class="btn btn-danger" (click)="stopListening()">Parar Gravação</button>
+        <div *ngIf="transcriptionResult">
+          <p>Resultado da transcrição: {{ transcriptionResult }}</p>
+          <button class="btn btn-success" (click)="confirmTranscription()">Confirmar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

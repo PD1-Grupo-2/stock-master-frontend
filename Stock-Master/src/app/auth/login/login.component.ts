@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment'; // Import the environment
 
 
 @Component({
@@ -13,20 +14,37 @@ export class LoginComponent {
   password: string = '';
   errorMessage: string = '';
   isLoginPage: boolean = true;
+  isLoading = false;
+
 
   constructor(private authService: AuthService, private router: Router) { }
 
   onLogin() {
-    this.authService.login(this.email, this.password).subscribe({
-      next: (response) => {
-        console.log('Login feito', response);
-        //ajustar para a rota correta 
-        this.router.navigate(['/home']);
-      },
-      error: (err) => {
-        this.errorMessage = 'Login inválido: ' + (err.message ? err.message : '');
-      }
-    });
+    this.isLoading = true;
+
+    if (!environment.production) {
+      setTimeout(() => {
+      localStorage.setItem('token', 'dev-token');
+      localStorage.setItem('name', 'John Doe');
+      this.router.navigate(['/home']);
+      
+      this.isLoading = false;
+      }, 1000);
+    } else {
+      this.authService.login(this.email, this.password).subscribe(
+        (response: any) => {
+          localStorage.setItem('token', response.token);
+          localStorage.setItem('name', response.name);
+          this.router.navigate(['/home']);
+          this.isLoading = false;
+        },
+        error => {
+          console.error('Login failed', error);
+          this.errorMessage = 'O login falhou. Favor tente novamente.';
+          this.isLoading = false;
+        }
+      );
+    }
   }
 
   onForgotPassword() {
