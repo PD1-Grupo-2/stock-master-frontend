@@ -3,7 +3,6 @@ import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment'; // Import the environment
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,7 +15,6 @@ export class LoginComponent {
   isLoginPage: boolean = true;
   isLoading = false;
 
-
   constructor(private authService: AuthService, private router: Router) { }
 
   onLogin() {
@@ -24,18 +22,21 @@ export class LoginComponent {
 
     if (!environment.production) {
       setTimeout(() => {
-      localStorage.setItem('token', 'dev-token');
-      localStorage.setItem('name', 'John Doe');
-      this.router.navigate(['/home']);
-      
-      this.isLoading = false;
+        localStorage.setItem('token', 'dev-token');
+        localStorage.setItem('name', 'John Doe');
+        this.router.navigate(['/home']);
+        this.isLoading = false;
       }, 1000);
     } else {
       this.authService.login(this.email, this.password).subscribe(
         (response: any) => {
-          localStorage.setItem('token', response.token);
-          localStorage.setItem('name', response.name);
-          this.router.navigate(['/home']);
+          if (response && response.status === 200) {
+            localStorage.setItem('token', response.token);
+            localStorage.setItem('name', response.name);
+            this.router.navigate(['/home']);
+          } else {
+            this.errorMessage = response.message || 'O servidor retornou um erro. Favor tente novamente.';
+          }
           this.isLoading = false;
         },
         error => {
@@ -50,10 +51,12 @@ export class LoginComponent {
   onForgotPassword() {
     this.router.navigate(['/forgot-password']);
   }
+
   redirectToHome() {
     this.router.navigate(['/home']);
     console.log('Home');
   }
+
   loginWithGoogle() {
   }
 
@@ -63,4 +66,3 @@ export class LoginComponent {
   loginWithApple() {
   }
 }
-

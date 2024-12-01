@@ -27,7 +27,10 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  getInitials(name: string): string {
+  getInitials(name: string | null): string {
+    if (!name) {
+      return '';
+    }
     return name.split(' ').map(n => n[0]).join('');
   }
 

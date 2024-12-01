@@ -1,4 +1,4 @@
 export const environment = {
-    production: false,
-    bypassAuth: true
+    production: true,
+    bypassAuth: false
 };
