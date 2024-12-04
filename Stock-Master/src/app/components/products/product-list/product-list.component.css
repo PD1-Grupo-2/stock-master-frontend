@@ -1,9 +1,28 @@
 .product-image {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     object-fit: scale-down
   }
   
   .small-text {
     font-size: 0.9rem;
+  }
+
+  .floating-btn {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    z-index: 1000;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+  }
+  .loading-animation {
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 20px;
   }

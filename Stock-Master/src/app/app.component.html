@@ -1,9 +1,10 @@
-<!-- parent.component.html -->
 <div *ngIf="!isLoginPage">
     <app-header></app-header>
   </div>
   
-  <router-outlet></router-outlet>
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
   
   <div *ngIf="!isLoginPage">
     <app-bottom-navbar></app-bottom-navbar>

@@ -4,18 +4,34 @@
       <input type="text" class="form-control" placeholder="Busca por produtos..." [(ngModel)]="searchTerm" (input)="filterProducts()">
     </div>
   </div>
-  <div class="row">
-    <div class="col-lg-4 col-md-6 col-sm-12 mb-3" *ngFor="let product of filteredProducts">
-      <div class="card h-100">
-        <div class="d-flex align-items-center p-3">
-          <img [src]="product.image" class="card-img-left mr-3 product-image" alt="{{product.name}}">
-          <div>
-            <h5 class="card-title small-text">{{product.name}}</h5>
-            <p class="card-text small-text">{{product.description}}</p>
-            <p class="card-text small-text"><strong>Em estoque:</strong> {{product.stock}}</p>
+
+  <div *ngIf="loading" class="loading-animation">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Carregando...</span>
+    </div>
+  </div>
+
+  <div *ngIf="!loading">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-3" *ngFor="let product of filteredProducts">
+        <div class="card h-100">
+          <div class="d-flex align-items-center p-3">
+            <img [src]="product.image" class="card-img-left mr-3 product-image" alt="{{product.name}}">
+            <div>
+              <h5 class="card-title small-text">{{product.name}}</h5>
+              <p class="card-text small-text">{{product.description}}</p>
+              <div class="d-flex justify-content-between">
+                <p class="card-text small-text"><strong>Em estoque:</strong> {{product.stock}}</p>
+                <p class="card-text small-text"><strong>Preço:</strong> {{product.price | currency:'BRL' }}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <button class="btn btn-primary floating-btn" (click)="navigateToAddProduct()">
+    <i class="fas fa-plus"></i>
+  </button>
 </div>

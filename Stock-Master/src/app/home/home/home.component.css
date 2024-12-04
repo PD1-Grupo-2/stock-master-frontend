@@ -18,21 +18,19 @@
     transform: scale(1.05);
 }
 
-
-
 .menu-card {
     padding: 1rem;
-    /* Adjust the padding as needed */
     font-size: 0.7rem;
-    /* Adjust the font size as needed */
+
     height: 100px;
     /* Set a fixed height for the squares */
-    width: 100px;
+    width: 100%;
     /* Ensure the card takes the full width of the column */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #ececec;
 }
 
 .menu-card i {
@@ -42,6 +40,6 @@
 
 .menu-card h6 {
     margin-top: 0.5rem;
-    font-size: 1rem;
+    font-size: 0.8rem;
     /* Smaller font size for the text */
 }

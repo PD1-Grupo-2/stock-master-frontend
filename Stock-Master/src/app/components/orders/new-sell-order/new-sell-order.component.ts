@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import * as bootstrap from 'bootstrap';
 
 declare global {
@@ -28,48 +27,30 @@ declare global {
     readonly confidence: number;
   }
 }
+
 @Component({
-  selector: 'app-register-product',
-  templateUrl: './register-product.component.html',
-  styleUrls: ['./register-product.component.css']
+  selector: 'app-new-sell-order',
+  templateUrl: './new-sell-order.component.html',
+  styleUrls: ['./new-sell-order.component.css']
 })
-export class RegisterProductComponent {
-  
-  
-  description: string = '';
-  barcode: string = '';
-  stockQuantity: number = 0;
-  stockWarning: number = 0;
-  purchasePrice: number = 0;
-  salePrice: number = 0;
-  expiryDate: Date | null = null;
-  
-  isRecording = false;
-  recognition: any;
-
-  transcriptionResult: string = '';
+export class NewSellOrderComponent {
   productName: string = '';
+  quantity: number = 1;
+  price: number = 0;
+  customerName: string = '';
+  customerEmail: string = '';
+  orderDate: string = '';
+  orderStatus: string = 'pending';
+  transcriptionResult: string = '';
+  recognition: any;
+  isRecording: boolean = true;
   showTranscriptionResults = false;
-  successMessage: string = '';
-
-  supplierId: any;
-  categoryId: any;
-
-  speechRecognitionEnabled: boolean = true;
-
-  ngOnInit(): void {
-    const storedConfig = sessionStorage.getItem('speechRecognitionEnabled');
-    if (storedConfig !== null) {
-      this.speechRecognitionEnabled = storedConfig === 'true';
-    } else {
-      this.speechRecognitionEnabled = true; // Default value
-    }
+  searchProduct() {
+    console.log('Search product clicked');
   }
 
-  constructor(private http: HttpClient) {}
-
-  searchProduct(): void {
-    console.log('Search product clicked');
+  scanBarcode() {
+    console.log('Scan barcode clicked');
   }
 
   startListening() {
@@ -150,31 +131,5 @@ export class RegisterProductComponent {
     this.transcriptionResult = '';
     this.isRecording = true;
   }
-  registerProduct() {
-    const productData = {
-      name: this.productName,
-      description: this.description,
-      supplierId: this.supplierId,
-      categoryId: this.categoryId,
-      barcode: this.barcode,
-      stockQuantity: this.stockQuantity,
-      stockWarning: this.stockWarning,
-      purchasePrice: this.purchasePrice,
-      salePrice: this.salePrice,
-      expiryDate: this.expiryDate
-    };
-
-    this.http.post('/api/products', productData).subscribe(
-      response => {
-        console.log('Product registered successfully', response);
-        this.successMessage = 'Produto cadastrado com sucesso!';
-
-        // Handle success response
-      },
-      error => {
-        console.error('Error registering product', error);
-        this.successMessage = 'Erro ao cadastrar o produto.';
-      }
-    );
-  }
+  
 }

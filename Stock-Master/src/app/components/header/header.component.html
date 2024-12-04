@@ -2,13 +2,21 @@
   <a class="navbar-brand" href="#">
     <img src="images/logo_stock_master_horizontal.png" height="34" alt="Stock Master Logo">
   </a>
+  <div *ngIf="!environment.production" class="navbar-text rounded-label">
+    Development
+  </div>
   <div class="ml-auto">
     <ng-container *ngIf="user.avatar; else initials">
       <img [src]="user.avatar" class="rounded-circle" height="40" alt="User Avatar">
     </ng-container>
     <ng-template #initials>
-      <div class="avatar-initials rounded-circle">
+      <div class="avatar-initials rounded-circle" (click)="toggleMenu()">
         {{ getInitials(user.name) }}
+      </div>
+      <div *ngIf="menuOpen" (click)="toggleMenu()" class="hover-menu">
+        <div class="arrow-up"></div>
+        <p>{{ user.name }}</p>
+        <p (click)="logoff()" class="logoff-text" style="margin-top: 10px; text-decoration: underline; font-weight: normal;">Logoff</p>
       </div>
     </ng-template>
   </div>
