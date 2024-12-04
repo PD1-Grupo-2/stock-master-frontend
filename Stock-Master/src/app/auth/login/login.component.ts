@@ -30,10 +30,12 @@ export class LoginComponent {
     } else {
       this.authService.login(this.email, this.password).subscribe(
         (response: any) => {
-          if (response && response.status === 200) {
+          if (response && response.token && response.name) {
             localStorage.setItem('token', response.token);
             localStorage.setItem('name', response.name);
             this.router.navigate(['/home']);
+          } else if (response && response.status === 401) {
+            this.errorMessage = 'Acesso não autorizado. Favor revise suas credenciais.';
           } else {
             this.errorMessage = response.message || 'O servidor retornou um erro. Favor tente novamente.';
           }
@@ -41,13 +43,16 @@ export class LoginComponent {
         },
         error => {
           console.error('Login failed', error);
-          this.errorMessage = 'O login falhou. Favor tente novamente.';
+          if (error.status === 401) {
+            this.errorMessage = 'Acesso não autorizado. Favor revise suas credenciais.';
+          } else {
+            this.errorMessage = error.error?.message || 'O login falhou. Favor tente novamente.';
+          }
           this.isLoading = false;
         }
       );
     }
   }
-
   onForgotPassword() {
     this.router.navigate(['/forgot-password']);
   }

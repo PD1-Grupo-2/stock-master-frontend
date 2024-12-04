@@ -13,9 +13,10 @@
       <div class="avatar-initials rounded-circle" (click)="toggleMenu()">
         {{ getInitials(user.name) }}
       </div>
-      <div *ngIf="menuOpen" class="hover-menu">
+      <div *ngIf="menuOpen" (click)="toggleMenu()" class="hover-menu">
+        <div class="arrow-up"></div>
         <p>{{ user.name }}</p>
-        <button (click)="logoff()">Logoff</button>
+        <p (click)="logoff()" class="logoff-text" style="margin-top: 10px; text-decoration: underline; font-weight: normal;">Logoff</p>
       </div>
     </ng-template>
   </div>

@@ -1,6 +1,6 @@
 {
     "/api": {
-    "target": "${API_URL}",
+    "target": "https://apistockmaster-axcxcdb7dshkb7ae.brazilsouth-01.azurewebsites.net",
       "secure": false,
       "changeOrigin": true,
       "logLevel": "debug"

@@ -58,12 +58,17 @@
         <h5 class="modal-title" id="recordingModalLabel">Gravação em andamento</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body text-center">
         <p>Gravando... Clique no botão abaixo para parar a gravação.</p>
-        <button class="btn btn-danger" (click)="stopListening()">Parar Gravação</button>
-        <div *ngIf="transcriptionResult">
+        <div class="d-flex justify-content-center">
+          <button class="btn btn-danger circular-btn" (click)="stopListening()">
+            <i class="fas fa-microphone mic-icon" [class.pulsing]="isRecording"></i>
+          </button>
+        </div>
+        <div *ngIf="showTranscriptionResults" class="transcription-result mt-3">
           <p>Resultado da transcrição: {{ transcriptionResult }}</p>
           <button class="btn btn-success" (click)="confirmTranscription()">Confirmar</button>
+          <button class="btn btn-warning" (click)="retryTranscription()">Tentar Novamente</button>
         </div>
       </div>
     </div>

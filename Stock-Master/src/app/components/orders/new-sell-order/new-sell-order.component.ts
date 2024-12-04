@@ -43,14 +43,13 @@ export class NewSellOrderComponent {
   orderStatus: string = 'pending';
   transcriptionResult: string = '';
   recognition: any;
-
+  isRecording: boolean = true;
+  showTranscriptionResults = false;
   searchProduct() {
-    // Implement product search logic here
     console.log('Search product clicked');
   }
 
   scanBarcode() {
-    // Implement barcode scanning logic here
     console.log('Scan barcode clicked');
   }
 
@@ -76,7 +75,18 @@ export class NewSellOrderComponent {
   }
 
   stopListening() {
+    this.isRecording = false;
     this.recognition.stop();
+    this.showTranscriptionResults = false;
+    if (this.transcriptionResult !== '') {
+      this.showTranscriptionResults = true;
+    }
+  const checkTranscription = setInterval(() => {
+    if (this.transcriptionResult !== '') {
+    clearInterval(checkTranscription);
+    this.showTranscriptionResults = true;
+    }
+  }, 1000);
   }
 
   confirmTranscription() {
@@ -117,4 +127,9 @@ export class NewSellOrderComponent {
       console.error('Modal element not found');
     }
   }
+  retryTranscription(): void {
+    this.transcriptionResult = '';
+    this.isRecording = true;
+  }
+  
 }

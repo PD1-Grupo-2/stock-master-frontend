@@ -36,3 +36,6 @@
     background-color: #3E5BEA; /* Set the background color for the active item */
     color: #fff; /* Set the text color for the active item */
 }
+.main-content {
+    padding-bottom: 700px; /* Adjust this value based on the height of your bottom navbar */
+  }

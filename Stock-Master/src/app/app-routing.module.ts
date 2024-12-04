@@ -14,6 +14,8 @@ import { RegisterProductComponent } from './components/products/register-product
 import { environment } from './environments/environment';
 import { OrderListComponent } from './components/orders/order-list/order-list.component';
 import { NewSellOrderComponent } from './components/orders/new-sell-order/new-sell-order.component';
+import { ConfigurationsComponent } from './components/configurations/configurations.component';
+import { SuppliersListComponent } from './components/suppliers/suppliers-list/suppliers-list.component';
 
 
 const routes: Routes = [
@@ -24,10 +26,12 @@ const routes: Routes = [
   { path: 'register-product', component: RegisterProductComponent, canActivate: environment.bypassAuth ? [] : [AuthGuard] },
   { path: 'product-list', component: ProductListComponent, canActivate: environment.bypassAuth ? [] : [AuthGuard] },
   { path: 'client-list', component: ClientListComponent, canActivate: environment.bypassAuth ? [] : [AuthGuard] },
-  { path: 'supplier-list', component: RegisterSupplierComponent, canActivate: environment.bypassAuth ? [] : [AuthGuard] },
+  { path: 'supplier-list', component: SuppliersListComponent, canActivate: environment.bypassAuth ? [] : [AuthGuard] },
   { path: 'stock-list', component: StockListComponent, canActivate: environment.bypassAuth ? [] : [AuthGuard] },
   { path: 'order-list', component: OrderListComponent, canActivate: environment.bypassAuth ? [] : [AuthGuard] },
   { path: 'new-sell-order', component: NewSellOrderComponent, canActivate: environment.bypassAuth ? [] : [AuthGuard] },
+  { path: 'new-product', component: RegisterProductComponent, canActivate: environment.bypassAuth ? [] : [AuthGuard] },
+  { path: 'configurations', component: ConfigurationsComponent, canActivate: environment.bypassAuth ? [] : [AuthGuard] },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home' }
 ];

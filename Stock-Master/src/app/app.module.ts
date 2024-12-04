@@ -28,6 +28,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { OrderListComponent } from './components/orders/order-list/order-list.component';
 import { NewSellOrderComponent } from './components/orders/new-sell-order/new-sell-order.component';
 import { MatSelectModule } from '@angular/material/select';
+import { ConfigurationsComponent } from './components/configurations/configurations.component';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -48,6 +49,7 @@ import { MatSelectModule } from '@angular/material/select';
     StockListComponent,
     OrderListComponent,
     NewSellOrderComponent,
+    ConfigurationsComponent,
   ],
   imports: [
     BrowserModule,

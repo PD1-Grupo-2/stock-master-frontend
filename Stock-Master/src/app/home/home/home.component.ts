@@ -8,8 +8,8 @@ import { environment } from '../../environments/environment'; // Import the envi
 })
 export class HomeComponent implements OnInit {
   notifications = [
-    { title: 'Low Stock', message: 'Product A is running low on stock.', type: 'warning' },
-    { title: 'Low Stock', message: 'Product B is running low on stock.', type: 'warning' }
+    { title: 'Estoque baixo', message: 'Cerveja Spaten 350 ml está com estoque baixo.', type: 'warning' },
+    { title: 'Estoque baixo', message: 'Batata Pringles lata está com estoque baixo.', type: 'warning' },
   ];
 
   constructor() {}

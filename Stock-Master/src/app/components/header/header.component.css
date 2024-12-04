@@ -55,3 +55,13 @@
   border-radius: 5px;
   cursor: pointer;
 }
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid white;
+  position: absolute;
+  top: -10px;
+  right: 20px; /* Adjust this value to align the arrow with the avatar */
+}
