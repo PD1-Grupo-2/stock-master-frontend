@@ -131,5 +131,13 @@ export class NewSellOrderComponent {
     this.transcriptionResult = '';
     this.isRecording = true;
   }
-  
+  increaseQuantity() {
+    this.quantity++;
+  }
+
+  decreaseQuantity() {
+    if (this.quantity > 1) {
+      this.quantity--;
+    }
+  }
 }

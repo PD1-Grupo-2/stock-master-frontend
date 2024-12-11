@@ -1,0 +1,51 @@
+.divider {
+    width: 100%;
+    height: 1px;
+    background-color: #bebebe; /* Adjust the color as needed */
+    margin: 10px auto; /* Center the divider horizontally */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add drop shadow */
+  }
+
+  .landing-page-img {
+    width: 100%; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure the image is displayed as a block element */
+    margin-bottom: 20px; /* Space between the image and the navbar */
+  }
+  .banner {
+    position: relative;
+  }
+  
+  .landing-page-img {
+    width: 100%; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure the image is displayed as a block element */
+  }
+  
+  .registrar-btn {
+    position: absolute;
+    top: 50%; /* Adjust the vertical position as needed */
+    left: 20px; /* Adjust the horizontal position as needed */
+    transform: translateY(-50%); /* Center the button vertically */
+    z-index: 1; /* Ensure the button is in front of the image */
+  }
+  .voice-recognition-section {
+    margin-top: 20px; /* Space between the sections */
+  }
+  
+  .voice-img {
+    width: 180px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+.text-gray {
+    color: gray;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2em;
+  }
+  
+  .font-weight-bold {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3em;
+    font-weight: bold;
+  }

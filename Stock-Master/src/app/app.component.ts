@@ -9,12 +9,11 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class AppComponent {
   title = 'Stock-Master';
-  isLoginPage: boolean = false;
+  hideHeaderAndNavbar: boolean = false;
   constructor(private router: Router) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        this.isLoginPage = event.url === '/login';
-      }
+        this.hideHeaderAndNavbar = ['/login', '/landing-page', '/new-user'].includes(event.url);      }
     });
   }
 }

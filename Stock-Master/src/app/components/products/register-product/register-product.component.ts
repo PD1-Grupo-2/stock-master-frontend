@@ -34,8 +34,8 @@ declare global {
   styleUrls: ['./register-product.component.css']
 })
 export class RegisterProductComponent {
-  
-  
+
+
   description: string = '';
   barcode: string = '';
   stockQuantity: number = 0;
@@ -43,7 +43,7 @@ export class RegisterProductComponent {
   purchasePrice: number = 0;
   salePrice: number = 0;
   expiryDate: Date | null = null;
-  
+
   isRecording = false;
   recognition: any;
 
@@ -66,11 +66,12 @@ export class RegisterProductComponent {
     }
   }
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   searchProduct(): void {
     console.log('Search product clicked');
   }
+  
 
   startListening() {
     const { SpeechRecognition, webkitSpeechRecognition } = window as any;
@@ -100,12 +101,12 @@ export class RegisterProductComponent {
     if (this.transcriptionResult !== '') {
       this.showTranscriptionResults = true;
     }
-  const checkTranscription = setInterval(() => {
-    if (this.transcriptionResult !== '') {
-    clearInterval(checkTranscription);
-    this.showTranscriptionResults = true;
-    }
-  }, 1000);
+    const checkTranscription = setInterval(() => {
+      if (this.transcriptionResult !== '') {
+        clearInterval(checkTranscription);
+        this.showTranscriptionResults = true;
+      }
+    }, 1000);
   }
 
   confirmTranscription() {
@@ -172,6 +173,12 @@ export class RegisterProductComponent {
         // Handle success response
       },
       error => {
+        if (error.status === 400){
+          console.log('Error registering product', error.error.message);
+          this.successMessage = 'Erro ao cadastrar o produto.' + error.error.message;
+          
+        }
+
         console.error('Error registering product', error);
         this.successMessage = 'Erro ao cadastrar o produto.';
       }

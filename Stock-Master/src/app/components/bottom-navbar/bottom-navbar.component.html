@@ -2,11 +2,11 @@
     <a routerLink="/home" class="nav-item" [class.active]="selectedTab === 'home'" (click)="selectTab('home')">
       <i class="fas fa-home"></i>
     </a>
-    <a routerLink="/search" class="nav-item" [class.active]="selectedTab === 'search'" (click)="selectTab('search')">
-      <i class="fas fa-search"></i>
+    <a routerLink="/stock-list" class="nav-item" [class.active]="selectedTab === 'stock-list'" (click)="selectTab('stock-list')">
+      <i class="fas fa-warehouse"></i>
     </a>
-    <a routerLink="/notifications" class="nav-item" [class.active]="selectedTab === 'notifications'" (click)="selectTab('notifications')">
-      <i class="fas fa-bell"></i>
+    <a routerLink="/supplier-list" class="nav-item" [class.active]="selectedTab === 'supplier-list'" (click)="selectTab('supplier-list')">
+      <i class="fas fa-truck"></i>
     </a>
 
     <a routerLink="/order-list" class="nav-item" [class.active]="selectedTab === 'order-list'" (click)="selectTab('order-list')">

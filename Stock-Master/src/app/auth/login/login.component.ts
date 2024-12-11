@@ -12,7 +12,7 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
   errorMessage: string = '';
-  isLoginPage: boolean = true;
+  hideHeaderAndNavbar: boolean = true;
   isLoading = false;
 
   constructor(private authService: AuthService, private router: Router) { }
@@ -59,7 +59,6 @@ export class LoginComponent {
 
   redirectToHome() {
     this.router.navigate(['/home']);
-    console.log('Home');
   }
 
   loginWithGoogle() {

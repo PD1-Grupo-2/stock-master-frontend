@@ -16,9 +16,11 @@ import { OrderListComponent } from './components/orders/order-list/order-list.co
 import { NewSellOrderComponent } from './components/orders/new-sell-order/new-sell-order.component';
 import { ConfigurationsComponent } from './components/configurations/configurations.component';
 import { SuppliersListComponent } from './components/suppliers/suppliers-list/suppliers-list.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
 
 
 const routes: Routes = [
+  { path: 'landing-page', component: LandingPageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent, canActivate: environment.bypassAuth ? [] : [AuthGuard] },
   { path: 'new-user', component: RegisterComponent },
@@ -32,7 +34,7 @@ const routes: Routes = [
   { path: 'new-sell-order', component: NewSellOrderComponent, canActivate: environment.bypassAuth ? [] : [AuthGuard] },
   { path: 'new-product', component: RegisterProductComponent, canActivate: environment.bypassAuth ? [] : [AuthGuard] },
   { path: 'configurations', component: ConfigurationsComponent, canActivate: environment.bypassAuth ? [] : [AuthGuard] },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/landing-page', pathMatch: 'full' },
   { path: '**', redirectTo: '/home' }
 ];
 

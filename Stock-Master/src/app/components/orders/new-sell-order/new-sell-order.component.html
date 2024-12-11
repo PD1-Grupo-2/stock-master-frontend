@@ -1,16 +1,17 @@
 <div class="container mt-4">
-  <h2 class="text-center">Pedido de Venda</h2>
+  <h2 class="text-center">Nova venda</h2>
   <form>
     <div class="mb-3">
       <label for="productName" class="form-label">Nome do Produto</label>
       <div class="input-group">
         <input type="text" class="form-control" id="productName" placeholder="Digite o nome do produto" [(ngModel)]="productName" name="productName" required>
-        <button class="btn btn-outline-secondary" type="button" (click)="searchProduct()">
+        <!-- Desabilitados temporariamente-->
+        <!-- <button class="btn btn-outline-secondary" type="button" (click)="searchProduct()">
           <i class="bi bi-search"></i>
         </button>
         <button class="btn btn-outline-secondary" type="button" (click)="scanBarcode()">
           <i class="bi bi-upc-scan"></i>
-        </button>
+        </button> -->
         <button class="btn btn-outline-secondary" type="button" (click)="startListening()">
           <i class="bi bi-mic"></i>
         </button>
@@ -18,7 +19,11 @@
     </div>
     <div class="mb-3">
       <label for="quantity" class="form-label">Quantidade</label>
-      <input type="number" class="form-control" id="quantity" placeholder="Digite a quantidade" [(ngModel)]="quantity" name="quantity" required>
+      <div class="input-group" style="max-width: 150px;">
+        <button class="btn btn-outline-secondary" type="button" (click)="decreaseQuantity()">-</button>
+        <input type="number" class="form-control" id="quantity" placeholder="Digite a quantidade" [(ngModel)]="quantity" name="quantity" required>
+        <button class="btn btn-outline-secondary" type="button" (click)="increaseQuantity()">+</button>
+      </div>
     </div>
     <div class="mb-3">
       <label for="price" class="form-label">Preço</label>

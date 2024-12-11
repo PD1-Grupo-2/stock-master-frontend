@@ -29,6 +29,7 @@ import { OrderListComponent } from './components/orders/order-list/order-list.co
 import { NewSellOrderComponent } from './components/orders/new-sell-order/new-sell-order.component';
 import { MatSelectModule } from '@angular/material/select';
 import { ConfigurationsComponent } from './components/configurations/configurations.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -50,6 +51,7 @@ import { ConfigurationsComponent } from './components/configurations/configurati
     OrderListComponent,
     NewSellOrderComponent,
     ConfigurationsComponent,
+    LandingPageComponent,
   ],
   imports: [
     BrowserModule,

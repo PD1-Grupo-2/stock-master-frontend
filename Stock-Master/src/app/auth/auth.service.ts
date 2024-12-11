@@ -14,11 +14,11 @@ export class AuthService {
   login(email: string, password: string): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const payload = { email, password };
-    console.log('Request payload:', payload); // Log the request payload
+    console.log('Request payload:', payload);
     return this.http.post(this.loginUrl, payload, { headers }).pipe(
       tap(
-        response => console.log('Response received:', response), // Log the response
-        error => console.error('Error received:', error) // Log the error
+        response => console.log('Response received:', response),
+        error => console.error('Error received:', error)
       )
     );
   }

@@ -10,17 +10,15 @@ import { filter } from 'rxjs/operators';
 export class BottomNavbarComponent implements OnInit {
   selectedTab: string = 'home';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   ngOnInit() {
-    // Update selected tab based on the current route
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: NavigationEnd) => {
       this.updateSelectedTab(event.urlAfterRedirects);
     });
 
-    // Initialize selected tab based on the initial route
     this.updateSelectedTab(this.router.url);
   }
 
@@ -32,14 +30,14 @@ export class BottomNavbarComponent implements OnInit {
   private updateSelectedTab(url: string) {
     if (url.includes('home')) {
       this.selectedTab = 'home';
-    } else if (url.includes('search')) {
-      this.selectedTab = 'search';
-    } else if (url.includes('notifications')) {
-      this.selectedTab = 'notifications';
-    } else if (url.includes('profile')) {
-      this.selectedTab = 'profile';
+    } else if (url.includes('supplier-list')) {
+      this.selectedTab = 'supplier-list';
+
     } else if (url.includes('order-list')) {
       this.selectedTab = 'order-list';
+
+    } else if (url.includes('help')) {
+      this.selectedTab = 'help';
     }
   }
 }
