@@ -22,3 +22,8 @@
     background-color: #007bff;
     color: white;
   }
+  .product-title {
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+  }

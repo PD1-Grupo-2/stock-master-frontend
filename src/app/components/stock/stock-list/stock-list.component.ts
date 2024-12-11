@@ -7,15 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StockListComponent implements OnInit {
   entradaProducts = [
-    { name: 'Produto 1', quantity: 100, price: 10.00 },
-    { name: 'Produto 2', quantity: 50, price: 20.00 },
-    { name: 'Produto 3', quantity: 200, price: 5.00 },
+    { name: 'Cigarro Mentolado L&M', quantity: 100, price: 10.00 },
+    { name: 'Bala 7 Belo', quantity: 50, price: 20.00 },
+    { name: 'Batata Ruffles', quantity: 2, price: 12.00 },
   ];
 
   saidaProducts = [
-    { name: 'Produto 4', quantity: 30, price: 15.00 },
-    { name: 'Produto 5', quantity: 20, price: 25.00 },
-    { name: 'Produto 6', quantity: 10, price: 30.00 },
+    { id: '8716254', name: 'Batata Pringles', client: 'João da Silva', quantity: 10, price: 100 },
+    { id: '8729172', name: 'Cobertura de Chocolate Nestlé', client: 'Armazém Medianeira', quantity: 5, price: 200 },
+    { id: '8719286', name: 'Chaleira elétrica Cadence', client: 'Maria Silva', quantity: 2, price: 300 }
   ];
 
   constructor() { }

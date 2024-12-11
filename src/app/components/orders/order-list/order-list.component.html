@@ -1,22 +1,27 @@
 <div class="container mt-4">
-    <div class="row mb-3">
-      <div class="col">
-        <input type="text" class="form-control" placeholder="Busca por ordems..." [(ngModel)]="searchTerm" (input)="filterOrders()">
-      </div>
+  <div class="row mb-3">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Busca por pedidos..." [(ngModel)]="searchTerm"
+        (input)="filterOrders()">
     </div>
-    <div class="row">
-      <div class="col-lg-4 col-md-6 col-sm-12 mb-3" *ngFor="let product of filteredOrders">
-        <div class="card h-100">
-          <div class="d-flex align-items-center p-3">
-            <div>
-              <h5 class="card-title small-text">{{product.name}}</h5>
-
+  </div>
+  <div class="row">
+    <div class="col-lg-4 col-md-6 col-sm-12 mb-3" *ngFor="let product of filteredOrders">
+      <div class="card h-100">
+        <div class="d-flex align-items-center p-3">
+          <div>
+            <h5 class="card-title small-text">Pedido #{{product.id}}</h5>
+            <div class="order-details">
+              <p class="card-text"><span class="semi-bold">Cliente:</span> {{product.client}}</p>
+              <p class="card-text"><span class="semi-bold">Quantidade:</span> {{product.quantity}}</p>
+              <p class="card-text"><span class="semi-bold">Preço total:</span> {{product.price | currency:'BRL'}}</p>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <button class="btn btn-primary floating-btn" (click)="navigateToAddOrder()">
-      <i class="fas fa-plus"></i>
-    </button>
   </div>
+  <button class="btn btn-primary floating-btn" (click)="navigateToAddOrder()">
+    <i class="fas fa-plus"></i>
+  </button>
+</div>
