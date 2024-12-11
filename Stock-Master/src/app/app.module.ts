@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,13 +16,24 @@ import { ProductListComponent } from './components/products/product-list/product
 import { RegisterProductComponent } from './components/products/register-product/register-product.component';
 import { SuppliersListComponent } from './components/suppliers/suppliers-list/suppliers-list.component';
 import { StockListComponent } from './components/stock/stock-list/stock-list.component';
+import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import { AuthGuard } from './auth/auth.guard';
+import { OrderListComponent } from './components/orders/order-list/order-list.component';
+import { NewSellOrderComponent } from './components/orders/new-sell-order/new-sell-order.component';
+import { MatSelectModule } from '@angular/material/select';
+import { ConfigurationsComponent } from './components/configurations/configurations.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
 
 @NgModule({
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+
   declarations: [
     AppComponent,
     LoginComponent,
@@ -37,7 +48,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RegisterProductComponent,
     SuppliersListComponent,
     StockListComponent,
-    
+    OrderListComponent,
+    NewSellOrderComponent,
+    ConfigurationsComponent,
+    LandingPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,9 +62,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatInputModule,
     MatFormFieldModule,
     MatTabsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatSelectModule    
+
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

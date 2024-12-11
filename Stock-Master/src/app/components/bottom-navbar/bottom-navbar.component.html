@@ -1,18 +1,18 @@
 <div class="bottom-navbar">
-    <a href="#home" class="nav-item">
-        <i class="fas fa-home"></i>
-        <span>Home</span>
+    <a routerLink="/home" class="nav-item" [class.active]="selectedTab === 'home'" (click)="selectTab('home')">
+      <i class="fas fa-home"></i>
     </a>
-    <a href="#search" class="nav-item">
-        <i class="fas fa-search"></i>
-        <span>Pesquisa</span>
+    <a routerLink="/stock-list" class="nav-item" [class.active]="selectedTab === 'stock-list'" (click)="selectTab('stock-list')">
+      <i class="fas fa-warehouse"></i>
     </a>
-    <a href="#notifications" class="nav-item">
-        <i class="fas fa-bell"></i>
-        <span>Notificações</span>
+    <a routerLink="/supplier-list" class="nav-item" [class.active]="selectedTab === 'supplier-list'" (click)="selectTab('supplier-list')">
+      <i class="fas fa-truck"></i>
     </a>
-    <a href="#profile" class="nav-item">
+
+    <a routerLink="/order-list" class="nav-item" [class.active]="selectedTab === 'order-list'" (click)="selectTab('order-list')">
+      <i class="fas fa-shopping-cart"></i>
+    </a>
+    <a routerLink="/profile" class="nav-item" [class.active]="selectedTab === 'profile'" (click)="selectTab('profile')">
         <i class="fas fa-user"></i>
-        <span>Perfil</span>
-    </a>
-</div>
+      </a>
+  </div>

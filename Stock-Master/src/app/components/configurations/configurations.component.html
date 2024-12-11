@@ -1,0 +1,15 @@
+<div class="container mt-4">
+    <h2 class="text-center">Configurações</h2>
+    <form (ngSubmit)="saveConfigurations()">
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="speechRecognition" [(ngModel)]="speechRecognitionEnabled" name="speechRecognitionEnabled">
+        <label class="form-check-label" for="speechRecognition">
+          Ativar Reconhecimento de Fala
+        </label>
+      </div>
+      <button type="submit" class="btn btn-primary mt-3">Salvar Configurações</button>
+    </form>
+    <div *ngIf="successMessage" class="alert alert-success mt-3">
+      {{ successMessage }}
+    </div>
+  </div>

@@ -1,1 +1,80 @@
-<p>register-product works!</p>
+<div class="container mt-4">
+  <h2 class="text-center">Cadastro de Produto</h2>
+  <form (ngSubmit)="registerProduct()">    
+    <div class="mb-3">
+      <label for="productName" class="form-label">Nome do Produto</label>
+
+      <div class="input-group">
+      <input type="text" class="form-control" id="productName" placeholder="Digite o nome do produto" [(ngModel)]="productName" name="name" required>
+              <button class="btn btn-outline-secondary" type="button" (click)="startListening()">
+          <i class="bi bi-mic"></i>
+        </button>
+    </div>
+  </div>
+    <div class="mb-3">
+      <label for="productDescription" class="form-label">Descrição do Produto</label>
+      <textarea class="form-control" id="productDescription" placeholder="Digite a descrição do produto" [(ngModel)]="description" name="description" required></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="productBarcode" class="form-label">Código de Barras</label>
+      <input type="text" class="form-control" id="productBarcode" placeholder="Digite o código de barras" [(ngModel)]="barcode" name="barcode" required>
+    </div>
+    <div class="mb-3">
+      <label for="supplierId" class="form-label">Código do fornecedor</label>
+      <input type="text" class="form-control" id="supplierId" placeholder="Digite o código do fornecedor" [(ngModel)]="supplierId" name="supplierId" required>
+    </div>
+    <div class="mb-3">
+      <label for="categoryId" class="form-label">Categoria</label>
+      <input type="text" class="form-control" id="categoryId" placeholder="Digite o código da categoria" [(ngModel)]="categoryId" name="categoryId" required>
+    </div>
+    <div class="mb-3">
+      <label for="stockQuantity" class="form-label">Quantidade em Estoque</label>
+      <input type="number" class="form-control" id="stockQuantity" placeholder="Digite a quantidade em estoque" [(ngModel)]="stockQuantity" name="stockQuantity" required>
+    </div>
+    <div class="mb-3">
+      <label for="stockWarning" class="form-label">Aviso de Estoque</label>
+      <input type="number" class="form-control" id="stockWarning" placeholder="Digite o aviso de estoque" [(ngModel)]="stockWarning" name="stockWarning" required>
+    </div>
+    <div class="mb-3">
+      <label for="purchasePrice" class="form-label">Preço de Compra</label>
+      <input type="number" class="form-control" id="purchasePrice" placeholder="Digite o preço de compra" [(ngModel)]="purchasePrice" name="purchasePrice" required>
+    </div>
+    <div class="mb-3">
+      <label for="salePrice" class="form-label">Preço de Venda</label>
+      <input type="number" class="form-control" id="salePrice" placeholder="Digite o preço de venda" [(ngModel)]="salePrice" name="salePrice" required>
+    </div>
+    <div class="mb-3">
+      <label for="expiryDate" class="form-label">Data de Validade</label>
+      <input type="date" class="form-control" id="expiryDate" [(ngModel)]="expiryDate" name="expiryDate">
+    </div>
+    <button type="submit" class="btn btn-primary">Cadastrar Produto</button>
+  </form>
+  <div *ngIf="successMessage" class="alert alert-success mt-3">
+    {{ successMessage }}
+  </div>
+</div>
+
+<!-- Modal for speech recognition -->
+<div class="modal fade" id="recordingModal" tabindex="-1" aria-labelledby="recordingModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="recordingModalLabel">Gravação em andamento</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <p>Gravando... Clique no botão abaixo para parar a gravação.</p>
+        <div class="d-flex justify-content-center">
+          <button class="btn btn-danger circular-btn" (click)="stopListening()">
+            <i class="fas fa-microphone mic-icon" [class.pulsing]="isRecording"></i>
+          </button>
+        </div>
+        <div *ngIf="showTranscriptionResults" class="transcription-result mt-3">
+          <p>Resultado da transcrição: {{ transcriptionResult }}</p>
+          <button class="btn btn-success" (click)="confirmTranscription()">Confirmar</button>
+          <button class="btn btn-warning" (click)="retryTranscription()">Tentar Novamente</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

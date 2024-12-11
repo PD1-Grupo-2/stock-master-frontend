@@ -1,10 +1,11 @@
-<!-- parent.component.html -->
-<div *ngIf="!isLoginPage">
-    <app-header></app-header>
-  </div>
-  
+<div *ngIf="!hideHeaderAndNavbar">
+  <app-header></app-header>
+</div>
+
+<div class="main-content">
   <router-outlet></router-outlet>
-  
-  <div *ngIf="!isLoginPage">
-    <app-bottom-navbar></app-bottom-navbar>
-  </div>
+</div>
+
+<div *ngIf="!hideHeaderAndNavbar">
+  <app-bottom-navbar></app-bottom-navbar>
+</div>
